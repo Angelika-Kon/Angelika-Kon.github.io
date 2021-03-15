@@ -1,16 +1,15 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,200;1,300;1,400&family=Shippori+Mincho+B1:wght@400;600;800&display=swap');
 *{
 	margin: 0;
 	padding: 0;
 	list-style: none;
 	box-sizing: border-box;
-	font-family: 'Ubuntu', sans-serif;
+	font-family: 'Shippori+Mincho+B1', sans-serif;
 }
 
 body{
-	background: linear-gradient(to right, #3525af, #9153c9);
+	background: linear-gradient(to right, #aec1f3, #4649dd);
 }
 
 .resume{
@@ -22,7 +21,7 @@ body{
 
 .left{
 	background: #292b2f;
-	width: 250px;
+	width: 260px;
 	padding: 0 20px;
 }
 
@@ -148,7 +147,7 @@ body{
 }
 
 .header{
-	background: #292b2f;
+	background:#646a79;
 	padding: 15px 30px;
 	color: #fff;
 	height: 240px;
