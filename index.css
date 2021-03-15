@@ -12,6 +12,7 @@ body{
 	background: linear-gradient(to right, #aec1f3, #4649dd);
 }
 
+
 .resume{
 	width: 800px;
 	background: #fff;
@@ -21,7 +22,6 @@ body{
 
 .left{
 	background: #292b2f;
-	width: 260px;
 	padding: 0 20px;
 }
 
@@ -92,6 +92,11 @@ body{
 	align-items: center;
 	justify-content: center;
 	margin-right: 15px;
+}
+
+.wrapper{
+	 display: grid;
+	 grid-template-columns: repeat(2);
 }
 
 .contact .li_wrap .text{
@@ -231,4 +236,8 @@ body{
 	width: 2px;
 	height: 90%;
 	background: #9153c9;
+}
+
+a{
+	text-decoration: none;
 }
