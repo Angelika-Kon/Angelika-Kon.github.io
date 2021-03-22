@@ -1,0 +1,227 @@
+*{
+	padding: 0;
+	margin:0;
+	box-sizing: border-box;
+	text-decoration: none;
+	font-family: arial, sans-serif;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+nav {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	margin-right: 30px;
+	margin-top: 14px;
+}
+
+
+
+nav a{
+    font-size: 13px;
+	display: inline-block;
+	line-height: 24px;
+	font-weight: 400;
+	color: rgb(0,0,0, 0.87);
+	cursor: pointer;
+	padding: 5px 6.7px
+}
+nav a:hover {
+    opacity: .85;
+    text-decoration: underline;
+}
+
+nav img{
+    width: 40px;
+    padding: 7px 7px;
+	margin: auto 7px;
+	cursor: pointer;
+}
+nav img:hover {
+	background-color: #ececece5;
+	padding: 7px 7px;
+	border-radius: 30px;
+}
+nav button {
+	border: 1px solid #4285f4;
+	outline: none;
+	background: #4285f4;
+	color: #fff;
+	padding: 7px 12px;
+	border-radius: 3px;
+	margin-left: 7px;
+	cursor: pointer;
+}
+
+nav button:hover{
+    box-shadow:0 0 3px #4285f4 ;
+}
+
+
+#main{
+    flex: 1;
+}
+
+#main #logo{
+    display: block;
+	margin: 0px auto;
+	margin-top: 107px;
+}
+
+#szukaj #szukaj-input:hover{
+    border: 1px solid #fff;
+	box-shadow: 0 0 2px rgba(0, 0, 0, 0.05), 
+				0 0 2px rgba(0, 0, 0, 0.05),
+				0 0 3px rgba(0, 0, 0, 0.05),
+				0 0 4px rgba(0, 0, 0, 0.05), 
+				0 0 5px rgba(0, 0, 0, 0.05), 
+				0 0 4px rgba(0, 0, 0, 0.05), 
+				0 0 5px rgba(0, 0, 0, 0.05)
+    
+}
+
+#szukaj{
+    width: 580px;
+	margin: 0px auto;
+	position: relative;
+	margin-top: -8px;
+	text-align: center;
+}
+
+#szukaj #szukaj-input{
+	display: block;
+	border: 1px solid #ddd;
+	padding: 13px;
+	padding-left: 45px;
+	border-radius: 25px;
+	width: 100%;
+    font-size: 16px;
+	transition: box-shadow 100ms;
+	outline: none;
+	cursor: auto;
+
+}
+
+#szukaj #szukaj-ikona{
+    width: 20px;
+	opacity: .4;
+	position: absolute;
+	top: 13px;
+	left: 14px;
+}
+
+#szukaj #mikrofon{
+    width: 24px;
+	position: absolute;
+    cursor: pointer;
+	top: 13px;
+	right: 24px;
+}
+
+
+#szukaj #szukaj-w-google{
+	border: 1px solid #f8f9fa;
+	padding: 9px 15px;
+	background-color: #f8f9fa;
+	color: #3c4043;
+	height: 36px;
+    min-width: 54px;
+	font-size: 14px;
+	border-radius: 4px;
+	display: inline-block;
+	text-align: center;
+	margin-right: 10px;
+	margin-top: 30px;
+	outline: none;
+	cursor: pointer;
+	transition: border-color 100ms;
+}
+
+#szukaj #szukaj-w-google:hover{
+    box-shadow: 0 0 3px rgba(172, 172, 172, 0.822);
+}
+#szczesliwy-traf{
+    border: 1px solid #f8f9fa;
+	padding: 9px 15px;
+	background-color: #f8f9fa;
+	color: #3c4043;
+	height: 36px;
+    min-width: 54px;
+	font-size: 14px;
+	border-radius: 4px;
+	display: inline-block;
+	text-align: center;
+	margin-right: 10px;
+	margin-top: 30px;
+	outline: none;
+	cursor: pointer;
+	transition: border-color 100ms;
+}
+
+#szczesliwy-traf:hover{
+    box-shadow: 0 0 3px rgba(172, 172, 172, 0.822);
+}
+footer{
+    background: #f2f2f2;
+}
+
+
+footer h4 {
+	color: rgba(0,0,0, 0.54);
+	font-size: 15px;
+	line-height: 43px;
+	font-weight: 400;
+	padding-left: 29px;
+	border: 1px solid #eee;
+}
+
+footer a {
+	color: rgba(0,0,0, 0.54);
+	display: inline-block;
+	padding: 12px 11.3px;
+	font-size: 14px;
+	
+}
+footer a:hover {
+	text-decoration: underline;
+}
+
+#stopka {
+	border-top: 1px solid #ddd;
+	display: flex;
+	color: #70757a;
+	padding: 5px 0px;
+}
+
+#lewa {
+	padding-right: 18.7px;
+	flex: 1;
+	justify-content: flex-start;
+    min-width: 40%;
+    order: 1;
+    
+}
+
+#centrum {
+	padding-left: 18.7px;
+	order: 2;
+	flex: 1;
+ 
+
+}
+
+#centrum #listek{
+	height: 15px;
+	padding-right: 5px;
+}
+
+#prawa {
+	padding-left: 18.7px;
+	order: 3;
+	justify-content: flex-end;
+}
+
