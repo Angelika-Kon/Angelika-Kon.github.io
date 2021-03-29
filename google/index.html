@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="pl">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width-device-width, initial-scale-1.0">
-        <link rel="stylesheet" href="style.css">
-        <title>Google</title>
-    </head>
-    <body>
-        <nav>
-            <a href="#">Gmail</a>
-            <a href="#">Grafika</a>
-            <img src="google-img/app.jpg">
-            <button>Zaloguj się</button>
 
+  <head>
+    <meta charset="utf-8">
+    <title>Szukaj w Google</title>
+    <link rel="icon"  href="images_google/icon.png">
+   <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style2.css">
+  </head>
+
+  <body class="results"> <!--home-->
+         <nav class="nav_tools">
+             <a href="#">Gmail</a>
+             <a href="#">Grafika</a>
+             <img src="google-img/app.jpg"class="aplikacje" role="button"></img>
+             <button>Zaloguj się</button>
+                    
         </nav>
         <section id="main">
             <img src="google-img/logo.png" id="logo">
@@ -26,24 +29,175 @@
                 </div>
             </form>
         </section>
-    <footer>
-        <h4>Polska</h4>
-        <div id="stopka">
-            <div id="lewa">
-                <a href="#" >O nas</a>
-                <a href="#" >Reklamuj się</a>
-                <a href="#" >Dla firm</a>
-                <a href="#" >Jak działa wyszukiwarka</a>
+
+        <footer id="nav">
+            <h4>Polska</h4>
+            <div id="stopka">
+                <div id="lewa">
+                    <a href="#" >O nas</a>
+                    <a href="#" >Reklamuj się</a>
+                    <a href="#" >Dla firm</a>
+                    <a href="#" >Jak działa wyszukiwarka</a>
+                </div>
+                <div id="centrum">
+                    <a href="#"><img src="google-img/leaf.png" id="listek">Nautralność węglowa od 2007 roku</a>
+                </div>
+                <div id="prawa">
+                    <a href="#" >Prywatność</a>
+                    <a href="#" >Warunki</a>
+                    <a href="#" >Ustawienia</a>
+                </div>
             </div>
-            <div id="centrum">
-                <a href="#"><img src="google-img/leaf.png" id="listek">Nautralność węglowa od 2007 roku</a>
-            </div>
-            <div id="prawa">
-                <a href="#" >Prywatność</a>
-                <a href="#" >Warunki</a>
-                <a href="#" >Ustawienia</a>
-            </div>
+        </footer>
+
+    
+    <div class="top_nav">
+
+        <img src="google-img/logo.png" alt="">
+
+        <ul class="konto">
+          <li><a href="#"><img src="google-img/app.jpg" class="aplikacje" role="button"></a></li>
+          <li><button class="zaloguj" type="button" name="button">Zaloguj się</button></li>
+        </ul>
+    <div id="tools">
+        <div class="elementy_wyszukiwnia">
+          <div id="szukaj">
+            <input type="text" value="">
+            <img src="google-img/szukaj.png" id="szukaj-ikona">
+            <img src="google-img/mikrofon.png" id="mikrofon">
+            <div class="line"></div>
+            <img src="google-img/x.png" id="usun">
         </div>
-    </footer>
-    </body>
+
+          <ul class="opcje_wyszukiwania">
+            <li class="glowna"><a href="#">Wszystko</a></li>
+            <li class="lewa"><a href="#">Wiadomości</a></li>
+            <li class="lewa"><a href="#">Grafika</a></li>
+            <li class="lewa"><a href="#">Wideo</a></li>
+            <li class="lewa"><a href="#">Mapy</a></li>
+            <li class="lewa"><a href="#">Więcej</a></li>
+            <li class="prawa"><a class="narzedzia" href="#">Narzędzia</a></li>
+            <li class="prawa"><a href="#">Ustawienia</a></li>
+          </ul>
+          
+        </div>
+
+      </div> 
+   
+
+    <div class="wyniki_wyszukiwania">
+
+        <p class="ilosc_wynikow">Około 288 000 000 wyników (0,75 s) </p>
+
+        <div class="wyniki">
+          <a class="link" href="#">pl.wikipedia.org › wiki › Star_Trek </a><button>▼</button>
+          <h2><a href="#">Star Trek – Wikipedia, wolna encyklopedia</a></h2>
+          <p>Oryginalny serial Star Trek, w skrócie nazywany TOS (ang. Star Trek: The Original Series) został zakończony po trzech sezonach, w roku 1969, z powodu niskiej ...</p>
+        </div>
+
+        <div class="wyniki">
+          <a class="link" href="#">pl.wikipedia.org › wiki › Star_Trek:_Enterprise </a><button>▼</button>
+          <h2><a href="#"> Star Trek: Enterprise – Wikipedia, wolna encyklopedia</a></h2>
+          <p>Przez anulowanie serialu sezon 2005/2006 stał się pierwszym od osiemnastu lat, gdy żaden nowy odcinek Star Treka nie pojawił się w telewizji. W Polsce ...</p>
+        </div>
+
+        <div class="wyniki">
+          <a class="link" href="#">www.filmweb.pl › film › Star+Trek-2009-324810</a><button>▼</button>
+          <h2><a href="#">Star Trek (2009) - Filmweb</a></h2> 
+          <p>Star Trek (2009) - Początki załogi USS Enterprise. James Kirk i Spock łączą siły, by ocalić swoich przyjaciół przed śmiertelnym niebezpieczeństwem.</p>
+        </div>
+
+        <div class="wyniki">
+          <a class="link" href="#">www.filmweb.pl › serial › Star+Trek-1966-31454</a><button>▼</button>
+          <h2><a href="#">Star Trek (Serial TV 1966-1969) - Filmweb</a></h2> 
+          <p>Star Trek (1966) - XXIII wiek. Załoga statku kosmicznego Enterprise, pod dowództwem Kapitana Jamesa T. Kirka, eksploruje galaktykę w poszukiwaniu nowych ...</p>
+        </div>
+
+       
+        <div class="podobne_wyniki">
+
+          <h2>Podobne wyszukiwania</h2>
+
+          <table>
+            <tr>
+              <td>Star trek (2009)</td>
+              <td>star strek: następne pokolenie</td>
+            </tr>
+            <tr>
+              <td>Star Trek: W nieznane</td>
+              <td>Star Trek chronologia</td>
+            </tr>
+            <tr>
+              <td>star trek: seria orginalna</td>
+              <td>Star Trek: Picard</td>
+            </tr>
+            <tr>
+              <td>Star Trek: Discovery</td>
+              <td>Star Trek: Picard Netflix</td>
+            </tr>
+          </table>
+
+        </div>
+
+        <br><br>
+
+          <table class="strony">
+            <tr>
+              <td><span class="niebieski">G</span></td>
+              <td><span class="czerwony">o</span></td>
+              <td><span class="zolty">o</span></td>
+              <td><span class="zolty">o</span></td>
+              <td><span class="zolty">o</span></td>
+              <td><span class="zolty">o</span></td>
+              <td><span class="zolty">o</span></td>
+              <td><span class="zolty">o</span></td>
+              <td><span class="zolty">o</span></td>
+              <td><span class="zolty">o</span></td>
+              <td><span class="zolty">o</span></td>
+              <td><span class="niebieski">g</span></td>
+              <td><span class="zielony">l</span></td>
+              <td><span class="czerwony">e</span></td>
+              <td rowspan="2" style="width: 10px;"></td>
+              <td><span class="nastepna_strzalka">></span></td>
+            </tr>
+
+            <tr>
+              <td class="strona_nr"></td>
+              <td class="strona_nr" style="color: black; cursor: text;">1</td>
+              <td class="strona_nr">2</td>
+              <td class="strona_nr">3</td>
+              <td class="strona_nr">4</td>
+              <td class="strona_nr">5</td>
+              <td class="strona_nr">6</td>
+              <td class="strona_nr">7</td>
+              <td class="strona_nr">8</td>
+              <td class="strona_nr">9</td>
+              <td class="strona_nr">10</td>
+              <td colspan="3"></td>
+              <td class="strona_nr">Następna</td>
+            </tr>
+
+          </table>
+
+      </div>
+
+      <div class="footer">
+
+        <div class="lokalizacja">
+        <p>
+          <a class="kraj">Polska</a>
+          <a class="lok"><strong>26-332</strong> - Z Twoich miejsc (dom) </a>
+          <a class ="lok_dalej">- Użyj dokładnej lokalizacji</a><a class ="lok_wiecej"> - Dowiedz się więcej</a>
+        </p>
+      </div>
+
+        <ul>
+            <li><a href="#">Pomoc</a></li>
+            <li><a href="#">Prześlij opinię</a></li>
+            <li><a href="#">Prywatność</a></li>
+            <li><a href="#">Warunki</a></li>
+        </ul>
+        
+      </div>
+</body>
 </html>
