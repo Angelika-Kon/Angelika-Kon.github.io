@@ -1,0 +1,388 @@
+.results * {
+    box-sizing: border-box;
+    font-family: arial, sans-serif;
+    outline: none;
+}
+
+body.results  {
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+    max-height: none;
+}
+.topContainer {
+    display: block;
+    border-bottom: 1px solid rgb(209, 209, 209);
+}
+.results img {
+    width: 92px;
+    display: inline;
+    margin-left:25px;
+    margin-right: 40px;
+    margin-top: 29px;
+    vertical-align: top;
+}
+
+.results .konto {
+    display: inline;
+    float: right;
+    padding: 20px;
+    margin-top: 0px;
+}
+
+.results .konto li {
+    padding: 10px;
+}
+
+.results .zaloguj {
+    border: 1px solid #3478e7;
+    background: #3478e7;
+    color: #fff;
+    padding: 7px 18px;
+    border-radius: 3px;
+    margin-left: 7px;
+    cursor: pointer;
+}
+.zaloguj:hover{
+    box-shadow:0 0 3px #4285f4 ;
+}
+
+.results .aplikacje {
+    width: 40px;
+    top: 0px;
+    padding: 7px 7px;
+    margin: -2px 7px;
+    cursor: pointer;
+}
+
+.results .aplikacje:hover {
+    background-color: #ececece5;
+    padding: 7px 7px;
+    border-radius: 30px;
+}
+
+.results h2 {
+    font-weight: normal;
+    margin: 0 0 5px 0;
+}
+
+.results h2 a {
+    color: rgb(0, 3, 166);
+}
+
+.results h2 a:hover {
+    text-decoration: underline;
+}
+
+.results .link {
+    color: rgb(71, 71, 71);
+    font-size: 14px;
+}
+
+.results a {
+    text-decoration: none;
+    color: rgb(71, 71, 71);
+}
+
+.results p {
+    font-size: 14px;
+    margin: 0;
+}
+
+.results span {
+    color: rgb(139, 139, 139);
+}
+
+.results .opcje_wyszukiwania li{
+    color: #5f6368;
+    margin-top: -10px;
+    font-size: 13px;
+}
+
+.results .elementy_wyszukiwnia {
+    width: 580px;
+    position: relative;
+}
+
+.results ul {
+    margin: 0;
+    padding: 0;
+}
+
+.results li {
+    display: inline;
+}
+
+
+#tools {
+    margin-top: 20px;
+    width: 700px;
+    display: inline-block;
+    vertical-align: bottom;
+    color: #5f6368;
+}
+
+.results #tools #szukaj-ikona {
+    opacity: 0.8;
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    top: -16px;
+    left: 627px;
+    cursor: pointer;
+}
+
+.results #tools #mikrofon {
+    width: 22px;
+    position: absolute;
+    top: -18px;
+    left: 588px;
+    cursor: pointer;
+}
+
+
+.results #tools .line {
+    border-left: 1px solid rgb(226, 226, 226);
+    height: 28px;
+    position: absolute;
+    right: 20px;
+    top: 8px;
+}
+
+.results #tools #usun {
+    opacity: 0.8;
+    width: 13px;
+    position: absolute;
+    top: -14px;
+    right: -2px;
+    cursor: pointer;
+}
+
+.results #tools input {
+    display: block;
+    width: 100%;
+    width: 690px;
+    height: 45px;
+    padding: 13px;
+    padding-left: 20px;
+    border-radius: 25px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+}
+
+.results .tools input:hover {
+    border: 1px solid #fff;
+    box-shadow: 0 0 5px rgba(172, 172, 172, 0.822);
+}
+
+.results .opcje_wyszukiwania {
+    width: 700px;
+    margin-top: 30px;
+    margin-left: 20px;
+}
+
+.results .lewa {
+    float: left;
+    margin-right: 10px;
+    margin-left: 0px;
+}
+
+.results .prawa{
+    float: right;
+    margin-right: 10px;
+    margin-left: 0px;
+}
+
+.results .opcje_wyszukiwania li {
+    padding: 10px 5px;
+}
+
+.results .opcje_wyszukiwania li a {
+    padding: 5px 8px;
+}
+
+.results .narzedzia:hover{
+    background-color: rgb(243, 243, 243);
+    border: 1px solid rgb(194, 194, 194);
+    border-radius: 4px;
+    box-shadow: 0 0 2px rgba(172, 172, 172, 0.822);
+}
+
+.results .active {
+    border-bottom: 3px solid #1A73E8;
+}
+
+.results .active a {
+    color: #1A73E8;
+}
+
+.results .wyniki_wyszukiwania {
+    margin-left: 175px;
+    width: 580px;
+    display: inline-block;
+}
+
+.results .wyniki {
+    margin: 20px 0 20px 5px;
+}
+
+.results .ilosc_wynikow {
+    margin-top: 15px;
+    color: rgb(110, 110, 110);
+}
+
+.results .wyniki p {
+    margin: 3px 0 25px 0;
+    color: #545454;
+    line-height: 1.5em;
+    font-size: 14px;
+}
+
+.results .wyniki button {
+    font-size: 10px;
+    line-height: 20px;
+    color: rgb(71, 71, 71);
+    padding-left: 5px;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+}
+
+.results .podobne_wyniki h2 {
+    margin-top: 3px;
+    margin-left: 3px;
+    margin-bottom: 20px;
+    
+}
+
+.results .podobne_wyniki td {
+    color: rgb(0, 3, 166);
+    font-weight: bold;
+    font-size: 14px;
+    padding-top: 7px;
+    padding-right: 30px;
+    cursor: pointer;
+}
+
+
+.results table.strony {
+    position: relative;
+    margin: 0 auto;
+    text-align: center;
+    letter-spacing: -0.12em;
+    font-size: 2.3em;
+    margin-bottom: 20px;
+    font-weight: bold;
+    margin-left: 150px;
+}
+
+.results .strona_nr {
+    font-size: 12px;
+    color: rgb(50, 93, 246);
+    letter-spacing: normal;
+    text-align: center;
+    cursor: pointer;
+}
+
+.results .nastepna_strzalka {
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: -50px;
+    color:rgb(0, 3, 166);
+    cursor: pointer;
+}
+
+.results .strona_nr:hover{
+    text-decoration: underline;
+}
+
+.results .niebieski {
+    color: #518dee;
+}
+
+.results .czerwony {
+    color: rgb(241, 46, 46);
+}
+
+.results .zielony {
+    color: rgb(49, 177, 37);
+}
+
+.results .zolty {
+    color: rgb(247, 200, 59);
+}
+
+.results .strony .strona_nr {
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.results .footer {
+    position: absolute;
+    background: #f2f2f2;
+    width: 100%;
+    padding: 10px;
+    border-top: 1px solid rgb(209, 209, 209);
+    font-size: 14px;
+}
+
+.results .footer p a.kraj {
+    margin-right: 24px;
+}
+
+.results .footer p a.lok_wiecej {
+    cursor: pointer;
+}
+
+.results .footer p a.lok_wiecej:hover {
+    color:rgb(73, 73, 73);
+}
+
+
+.results .footer p, .footer ul {
+    margin-left: 162px;
+}
+
+.results .footer p a strong {
+    color: black;
+    font-weight: bolder;
+}
+
+.results .footer p {
+    padding-bottom: 10px;
+    padding-top: 5px;
+}
+
+.results .footer ul {
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+.results .footer p a {
+    color: rgb(114, 114, 114);
+}
+
+.results .lok{
+    border-bottom: 1px solid rgb(190, 190, 190);
+}
+
+.results .footer li a {
+    margin-right: 20px;
+    color: rgb(114, 114, 114);
+}
+
+.results .footer li a:hover {
+    color:rgb(73, 73, 73);
+}
+
+.results .nav_tools{
+    display: none;
+}
+
+.results #main {
+    display: none;
+}
+
+.results #nav{
+    display:none;
+}
