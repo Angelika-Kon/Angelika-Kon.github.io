@@ -225,3 +225,16 @@
 	justify-content: flex-end;
 }
 
+.home .top_nav {
+	display: none;
+}
+.home .elementy_wyszukiwnia {
+	display: none;
+}
+.home .wyniki_wyszukiwania {
+	display: none;
+}
+.home .footer {
+	display: none;
+}
+
