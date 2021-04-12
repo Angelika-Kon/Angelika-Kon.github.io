@@ -1,4 +1,4 @@
-*{
+.home *{
 	padding: 0;
 	margin:0;
 	box-sizing: border-box;
@@ -6,12 +6,12 @@
 	font-family: arial, sans-serif;
 }
 
-body {
+.home body {
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
 }
-nav {
+.home nav {
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
@@ -21,7 +21,7 @@ nav {
 
 
 
-nav a{
+.home nav a{
     font-size: 13px;
 	display: inline-block;
 	line-height: 24px;
@@ -30,23 +30,23 @@ nav a{
 	cursor: pointer;
 	padding: 5px 6.7px
 }
-nav a:hover {
+.home nav a:hover {
     opacity: .85;
     text-decoration: underline;
 }
 
-nav img{
+.home nav img{
     width: 40px;
     padding: 7px 7px;
 	margin: auto 7px;
 	cursor: pointer;
 }
-nav img:hover {
+.home nav img:hover {
 	background-color: #ececece5;
 	padding: 7px 7px;
 	border-radius: 30px;
 }
-nav button {
+.home nav button {
 	border: 1px solid #4285f4;
 	outline: none;
 	background: #4285f4;
@@ -57,22 +57,22 @@ nav button {
 	cursor: pointer;
 }
 
-nav button:hover{
+.home nav button:hover{
     box-shadow:0 0 3px #4285f4 ;
 }
 
 
-#main{
+.home #main{
     flex: 1;
 }
 
-#main #logo{
+.home #main #logo{
     display: block;
 	margin: 0px auto;
 	margin-top: 107px;
 }
 
-#szukaj #szukaj-input:hover{
+.home #szukaj #szukaj-input:hover{
     border: 1px solid #fff;
 	box-shadow: 0 0 2px rgba(0, 0, 0, 0.05), 
 				0 0 2px rgba(0, 0, 0, 0.05),
@@ -84,7 +84,7 @@ nav button:hover{
     
 }
 
-#szukaj{
+.home #szukaj{
     width: 580px;
 	margin: 0px auto;
 	position: relative;
@@ -92,7 +92,7 @@ nav button:hover{
 	text-align: center;
 }
 
-#szukaj #szukaj-input{
+.home #szukaj #szukaj-input{
 	display: block;
 	border: 1px solid #ddd;
 	padding: 13px;
@@ -106,7 +106,7 @@ nav button:hover{
 
 }
 
-#szukaj #szukaj-ikona{
+.home #szukaj #szukaj-ikona{
     width: 20px;
 	opacity: .4;
 	position: absolute;
@@ -114,7 +114,7 @@ nav button:hover{
 	left: 14px;
 }
 
-#szukaj #mikrofon{
+.home #szukaj #mikrofon{
     width: 24px;
 	position: absolute;
     cursor: pointer;
@@ -123,7 +123,7 @@ nav button:hover{
 }
 
 
-#szukaj #szukaj-w-google{
+.home #szukaj #szukaj-w-google{
 	border: 1px solid #f8f9fa;
 	padding: 9px 15px;
 	background-color: #f8f9fa;
@@ -141,10 +141,10 @@ nav button:hover{
 	transition: border-color 100ms;
 }
 
-#szukaj #szukaj-w-google:hover{
+.home #szukaj #szukaj-w-google:hover{
     box-shadow: 0 0 3px rgba(172, 172, 172, 0.822);
 }
-#szczesliwy-traf{
+.home #szczesliwy-traf{
     border: 1px solid #f8f9fa;
 	padding: 9px 15px;
 	background-color: #f8f9fa;
@@ -162,15 +162,15 @@ nav button:hover{
 	transition: border-color 100ms;
 }
 
-#szczesliwy-traf:hover{
+.home #szczesliwy-traf:hover{
     box-shadow: 0 0 3px rgba(172, 172, 172, 0.822);
 }
-footer{
+.home footer{
     background: #f2f2f2;
 }
 
 
-footer h4 {
+.home footer h4 {
 	color: rgba(0,0,0, 0.54);
 	font-size: 15px;
 	line-height: 43px;
@@ -179,25 +179,25 @@ footer h4 {
 	border: 1px solid #eee;
 }
 
-footer a {
+.home footer a {
 	color: rgba(0,0,0, 0.54);
 	display: inline-block;
 	padding: 12px 11.3px;
 	font-size: 14px;
 	
 }
-footer a:hover {
+.home footer a:hover {
 	text-decoration: underline;
 }
 
-#stopka {
+.home #stopka {
 	border-top: 1px solid #ddd;
 	display: flex;
 	color: #70757a;
 	padding: 5px 0px;
 }
 
-#lewa {
+.home #lewa {
 	padding-right: 18.7px;
 	flex: 1;
 	justify-content: flex-start;
@@ -206,7 +206,7 @@ footer a:hover {
     
 }
 
-#centrum {
+.home #centrum {
 	padding-left: 18.7px;
 	order: 2;
 	flex: 1;
@@ -214,12 +214,12 @@ footer a:hover {
 
 }
 
-#centrum #listek{
+.home #centrum #listek{
 	height: 15px;
 	padding-right: 5px;
 }
 
-#prawa {
+.home #prawa {
 	padding-left: 18.7px;
 	order: 3;
 	justify-content: flex-end;

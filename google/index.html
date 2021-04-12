@@ -7,9 +7,11 @@
     <link rel="icon"  href="images_google/icon.png">
    <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" type="text/css" href="style2.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
   </head>
 
-  <body class="results"> <!--home-->
+  <body>
+    <div id="app" :class="[googleSearch.length > 0 ? 'results' : 'home']">  <!--home-->
          <nav class="nav_tools">
              <a href="#">Gmail</a>
              <a href="#">Grafika</a>
@@ -22,10 +24,10 @@
             <form><br><br>
                 <div id="szukaj">
                     <img src="google-img/szukaj.png" id="szukaj-ikona">
-                    <input type="text" id="szukaj-input">
+                    <input v-model="googleSearch" type="text" id="szukaj-input">
                     <img src="google-img/mikrofon.png" id="mikrofon">
-                    <input type="submit" id="szukaj-w-google" value="Szukaj w Google">
-                    <input type="submit" id="szczesliwy-traf" value="Szczęśliwy traf">
+                    <input type="button" id="szukaj-w-google" value="Szukaj w Google">
+                    <input type="button" id="szczesliwy-traf" value="Szczęśliwy traf">
                 </div>
             </form>
         </section>
@@ -199,5 +201,14 @@
         </ul>
         
       </div>
+  </div>
 </body>
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      googleSearch: '',
+    }
+  });
+</script>
 </html>
