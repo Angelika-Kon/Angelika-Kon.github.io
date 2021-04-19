@@ -10,11 +10,11 @@ div.results  {
     font-size: 13px;
     max-height: none;
 }
-.results .searchResults .cities{
+.results .wyniki_wyszukiwania .cities{
     padding:20px;
 }
 
-.results .searchResults .cities a{
+.results .wyniki_wyszukiwania .cities a{
     color: black;
     font-size: 20px;
     margin-bottom: 15px;
@@ -402,7 +402,7 @@ div.results  {
     display:none;
 }
 
-.results .searchResults .cities ul li{
+.results .wyniki_wyszukiwania .cities ul li{
     color:rgb(0, 3, 166);
     list-style: circle;
     font-size: 15px;
