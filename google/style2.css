@@ -4,7 +4,7 @@
     outline: none;
 }
 
-body.results  {
+div.results  {
     margin: 0;
     padding: 0;
     font-size: 13px;
@@ -179,6 +179,7 @@ body.results  {
     border-radius: 25px;
     border: 1px solid #ddd;
     font-size: 16px;
+    transition: box-shadow 100ms;
 }
 
 .results .tools input:hover {
@@ -210,6 +211,9 @@ body.results  {
 
 .results .opcje_wyszukiwania li a {
     padding: 5px 8px;
+    color: #5f6368;
+	font-family: Google Sans,arial,sans-serif;
+	font-size: 14px;
 }
 
 .results .narzedzia:hover{
@@ -219,11 +223,11 @@ body.results  {
     box-shadow: 0 0 2px rgba(172, 172, 172, 0.822);
 }
 
-.results .active {
+.results .search_options li.active {
     border-bottom: 3px solid #1A73E8;
 }
 
-.results .active a {
+.results .search_options li.active a {
     color: #1A73E8;
 }
 

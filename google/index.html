@@ -8,7 +8,7 @@
    <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" type="text/css" href="style2.css">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
-    <script src="cities.js"></script>
+    <script src="./cities.js"></script>
   </head>
 
   <body>
@@ -89,17 +89,17 @@
    
 
     <div class="wyniki_wyszukiwania">
-      <div class="cities">
-        <a class="link">Miasta z "{{googleSearch}}":</a>
-        <ul>
-          <li v-for="filtered Cities">
-            {{ city.name }}
-          </li>
-        </ul>
-      </div>
+
 
         <p class="ilosc_wynikow">Około 288 000 000 wyników (0,75 s) </p>
-
+        <div class="cities">
+          <a class="link">Miasta z "{{googleSearch}}":</a>
+          <ul>
+            <li v-for="filtered Cities">
+              {{ city.name }}
+            </li>
+          </ul>
+        </div>
         <div class="wyniki">
           <a class="link" href="#">pl.wikipedia.org › wiki › Star_Trek </a><button>▼</button>
           <h2><a href="#">Star Trek – Wikipedia, wolna encyklopedia</a></h2>
@@ -219,6 +219,7 @@
       googleSearch: '',
       cities: window.cities,
     },
+
     computed: {
       filteredCities: function() {
         let result = this.cities.filter(city => city.name.includes(this.googleSearch));
@@ -243,7 +244,6 @@
         }
       })
     }
-
-  });
+});
 </script>
 </html>
