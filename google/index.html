@@ -8,6 +8,7 @@
    <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" type="text/css" href="style2.css">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="cities.js"></script>
   </head>
 
   <body>
@@ -24,7 +25,7 @@
             <form><br><br>
                 <div id="szukaj">
                     <img src="google-img/szukaj.png" id="szukaj-ikona">
-                    <input v-model="googleSearch" type="text" id="szukaj-input">
+                    <input ref="first" v-model="googleSearch" type="text" id="szukaj-input">
                     <img src="google-img/mikrofon.png" id="mikrofon">
                     <input type="button" id="szukaj-w-google" value="Szukaj w Google">
                     <input type="button" id="szczesliwy-traf" value="Szczęśliwy traf">
@@ -64,7 +65,7 @@
     <div id="tools">
         <div class="elementy_wyszukiwnia">
           <div id="szukaj">
-            <input type="text" value="">
+            <input ref="second" type="text" v-model="googleSearch">
             <img src="google-img/szukaj.png" id="szukaj-ikona">
             <img src="google-img/mikrofon.png" id="mikrofon">
             <div class="line"></div>
@@ -88,6 +89,14 @@
    
 
     <div class="wyniki_wyszukiwania">
+      <div class="cities">
+        <a class="link">Miasta z "{{googleSearch}}":</a>
+        <ul>
+          <li v-for="filtered Cities">
+            {{ city.name }}
+          </li>
+        </ul>
+      </div>
 
         <p class="ilosc_wynikow">Około 288 000 000 wyników (0,75 s) </p>
 
@@ -208,7 +217,33 @@
     el: '#app',
     data: {
       googleSearch: '',
+      cities: window.cities,
+    },
+    computed: {
+      filteredCities: function() {
+        let result = this.cities.filter(city => city.name.includes(this.googleSearch));
+        if(result.length>10){
+          return result.slice(1,11);
+        }
+        return result;
+      }
+    },
+
+    updated() {
+        this.$nextTick(() => {
+
+        if (this.googleSearch.length > 0) {
+
+        this.$refs.second.focus();
+
+        } else {
+
+        this.$refs.first.focus();
+
+        }
+      })
     }
+
   });
 </script>
 </html>

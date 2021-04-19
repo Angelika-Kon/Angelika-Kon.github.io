@@ -10,6 +10,17 @@ body.results  {
     font-size: 13px;
     max-height: none;
 }
+.results .searchResults .cities{
+    padding:20px;
+}
+
+.results .searchResults .cities a{
+    color: black;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+
 .results .topContainer {
     display: block;
     border-bottom: 1px solid rgb(209, 209, 209);
@@ -385,4 +396,13 @@ body.results  {
 
 .results #nav{
     display:none;
+}
+
+.results .searchResults .cities ul li{
+    color:rgb(0, 3, 166);
+    list-style: circle;
+    font-size: 15px;
+    display: list-item;
+    margin-left: 15px;
+    padding: 5px;
 }
