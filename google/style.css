@@ -20,7 +20,6 @@ div.home {
 }
 
 
-
 .home nav a{
     font-size: 13px;
 	display: inline-block;
@@ -72,17 +71,7 @@ div.home {
 	margin-top: 107px;
 }
 
-.home #szukaj #szukaj-input:hover{
-    border: 1px solid #fff;
-	box-shadow: 0 0 2px rgba(0, 0, 0, 0.05), 
-				0 0 2px rgba(0, 0, 0, 0.05),
-				0 0 3px rgba(0, 0, 0, 0.05),
-				0 0 4px rgba(0, 0, 0, 0.05), 
-				0 0 5px rgba(0, 0, 0, 0.05), 
-				0 0 4px rgba(0, 0, 0, 0.05), 
-				0 0 5px rgba(0, 0, 0, 0.05)
-    
-}
+
 
 .home #szukaj{
     width: 580px;
@@ -92,17 +81,26 @@ div.home {
 	text-align: center;
 }
 
-.home #szukaj #szukaj-input{
-	display: block;
-	border: 1px solid #ddd;
-	padding: 13px;
-	padding-left: 45px;
-	border-radius: 25px;
-	width: 100%;
-    font-size: 16px;
-	transition: box-shadow 100ms;
-	outline: none;
-	cursor: auto;
+
+.home input{
+	background-color: transparent;
+    margin-top: 5px;
+	margin-left: 5px;
+    border: none;
+    padding-right: 0;
+    padding-bottom: 10px;
+    color: rgba(0,0,0,.87);
+    word-wrap: break-word;
+    outline: none;
+    display: flex;
+    flex: 100%;
+    height: 34px;
+	width: 280px;
+    font-size: 18px;
+    font-family: arial,sans-serif;
+    -webkit-appearance: textfield;
+    font-weight: 400;
+    text-align: start;
 
 }
 
@@ -116,7 +114,7 @@ div.home {
 
 .home #szukaj #mikrofon{
     width: 24px;
-	position: absolute;
+	position:absolute;
     cursor: pointer;
 	top: 13px;
 	right: 24px;
@@ -141,7 +139,7 @@ div.home {
 	transition: border-color 100ms;
 }
 
-.home #szukaj #szukaj-w-google:hover{
+.home  #szukaj-w-google:hover{
     box-shadow: 0 0 3px rgba(172, 172, 172, 0.822);
 }
 .home #szczesliwy-traf{
@@ -237,4 +235,78 @@ div.home {
 .home .footer {
 	display: none;
 }
+.home img.lupa
+{
+    margin: auto;
+    height: 23px;
+    cursor: pointer;
+}
 
+.home img.lupa1
+{
+    margin-top: 3px;
+	padding-left: 22px;
+	padding-top: 9px;
+    height: 23px;
+    cursor: pointer;
+}
+
+.home .wyszukaj
+{
+    display: block;
+    justify-content: center;
+    grid-template-rows: 50% 50%;
+    position: relative;
+    margin: 0 auto;
+    padding: 20px;
+	width: 500px;
+}
+.home .pasek
+{
+    background: #fff;
+    border: 1px solid #dfe1e5;
+    box-shadow: none;
+    border-radius: 24px;
+    z-index: 3;
+    padding-bottom: 5px;
+}
+.home ul
+{
+    display: block;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+}
+
+.home ul:hover,
+.home ul:focus 
+{
+    box-shadow: 0 0 0.3em 0.1em #d9d9d9;
+}
+.home .widok
+{
+    flex: 1;
+    display:flex;
+    padding: 5px 8px 0 16px;
+	
+}
+.home .text
+{
+    display: flex;
+    height: 40px;
+    margin: 0 auto;
+    width: 450px;
+    max-width: 584px;
+}
+.home ul
+{
+    display: block;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+}
+.home ul:hover,
+.home ul:focus 
+{
+    box-shadow: 0 0 0.3em 0.1em #d9d9d9;
+}

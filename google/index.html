@@ -11,7 +11,7 @@
   </head>
 
   <body>
-    <div id="app" :class="[googleSearch.length > 0 ? 'results' : 'home']">  <!--home-->
+    <div id="app" :class="[wyszukaj.length > 0 ? 'results' : 'home']">  <!--home-->
          <nav class="nav_tools">
              <a href="#">Gmail</a>
              <a href="#">Grafika</a>
@@ -21,14 +21,33 @@
         </nav>
         <section id="main">
             <img src="google-img/logo.png" id="logo">
-            <form><br><br>
+            <form>
+              <br><br>
+              <div class="wyszukaj">
+                
                 <div id="szukaj">
-                    <img src="google-img/szukaj.png" id="szukaj-ikona">
-                    <input ref="first" v-model="googleSearch" type="text" id="szukaj-input">
+                  <div class="pasek">
+                    <div class="text">
+                      <div class="widok">
+
+                    <img src="google-img/szukaj.png" @click="potwierdz" id="szukaj-ikona">
+                    <input ref="first" v-model="googleSearch" @keyup.enter="potwierdz" type="text" >
                     <img src="google-img/mikrofon.png" id="mikrofon">
-                    <input type="button" id="szukaj-w-google" value="Szukaj w Google">
+                  </div>
+                </div>
+                <div class="lista">
+                      <ul v-for="miasto in filtredCities" @click="uzupelnij(miasto)">
+                          <img class="lupa1" src="google-img/lupa.png" title="Szukaj">
+                          {{googleSearch}}<b>{{ miasto.name.substring(googleSearch.length) }}</b>
+                      </ul>
+                  
+                
+                </div>
+              </div>
+                    <input type="button" id="szukaj-w-google" @click="potwierdz"  value="Szukaj w Google">
                     <input type="button" id="szczesliwy-traf" value="Szczęśliwy traf">
                 </div>
+              </div>
             </form>
         </section>
 
@@ -64,7 +83,7 @@
     <div id="tools">
         <div class="elementy_wyszukiwnia">
           <div id="szukaj">
-            <input ref="second" type="text" v-model="googleSearch">
+            <input ref="second" type="text" v-model="googleSearch" >
             <img src="google-img/szukaj.png" id="szukaj-ikona">
             <img src="google-img/mikrofon.png" id="mikrofon">
             <div class="line"></div>
@@ -90,15 +109,9 @@
     <div class="wyniki_wyszukiwania">
 
 
+
         <p class="ilosc_wynikow">Około 288 000 000 wyników (0,75 s) </p>
-        <div class="cities">
-          <a class="link">Miasta z "{{googleSearch}}":</a>
-          <ul>
-            <li v-for="city in filteredCities">
-              {{ city.name }}
-            </li>
-          </ul>
-        </div>
+      
         <div class="wyniki">
           <a class="link" href="#">pl.wikipedia.org › wiki › Star_Trek </a><button>▼</button>
           <h2><a href="#">Star Trek – Wikipedia, wolna encyklopedia</a></h2>
@@ -123,7 +136,7 @@
           <p>Star Trek (1966) - XXIII wiek. Załoga statku kosmicznego Enterprise, pod dowództwem Kapitana Jamesa T. Kirka, eksploruje galaktykę w poszukiwaniu nowych ...</p>
         </div>
 
-       <br>
+        <br>
         <div class="podobne_wyniki">
 
           <h2>Podobne wyszukiwania</h2>
@@ -148,6 +161,7 @@
           </table>
 
         </div>
+
 
         <br><br>
 
@@ -213,36 +227,29 @@
 </body>
 <script>
   var app = new Vue({
-    el: '#app',
-    data: {
-      googleSearch: '',
-      cities: window.cities,
-    },
-
-    computed: {
-      filteredCities: function() {
-        let wyniki = this.cities.filter(city => city.name.includes(this.googleSearch));
-        if(wyniki.length>10){
-          return wyniki.slice(1,11);
-        }
-        return wyniki;
-      }
-    },
-
-    updated() {
-        this.$nextTick(() => {
-
-        if (this.googleSearch.length > 0) {
-
-        this.$refs.second.focus();
-
-        } else {
-
-        this.$refs.first.focus();
-
-        }
-      })
-    }
-});
+               el: "#app",
+               data: {
+                   googleSearch:"",
+                   wyszukaj:"",
+                   cities: window.cities,
+               },
+               computed: {
+                   filtredCities() {
+                       let wyniki = this.cities.filter(miasto => miasto.name.startsWith(this.googleSearch) || miasto.name.toLowerCase().startsWith(this.googleSearch));
+                       if (this.googleSearch.length > 0) {
+                           return wyniki.slice(0, 10);
+                       }
+                   }
+               },
+               methods: {
+                   potwierdz() {
+                       this.wyszukaj = this.googleSearch
+                   },
+                   uzupelnij(miasto) {
+                       this.googleSearch = miasto.name;
+                       this.wyszukaj = this.googleSearch;
+                   },
+               }
+           });
 </script>
 </html>
