@@ -10,21 +10,26 @@ div.results  {
     font-size: 13px;
     max-height: none;
 }
-.results .wyniki_wyszukiwania .cities{
+
+.results .searchResults .cities{
     padding:20px;
 }
 
-.results .wyniki_wyszukiwania .cities a{
+.results .searchResults .cities a{
     color: black;
     font-size: 20px;
     margin-bottom: 15px;
 }
 
-
-.results .topContainer {
-    display: block;
-    border-bottom: 1px solid rgb(209, 209, 209);
+.results .searchResults .cities ul li{
+    color:rgb(0, 3, 166);
+    list-style: circle;
+    font-size: 15px;
+    display: list-item;
+    margin-left: 15px;
+    padding: 5px;
 }
+
 .results img {
     width: 92px;
     display: inline;
@@ -34,18 +39,18 @@ div.results  {
     vertical-align: top;
 }
 
-.results .konto {
+.results .accountOptions {
     display: inline;
     float: right;
     padding: 20px;
     margin-top: 0px;
 }
 
-.results .konto li {
+.results .accountOptions li {
     padding: 10px;
 }
 
-.results .zaloguj {
+.results .signIn {
     border: 1px solid #3478e7;
     background: #3478e7;
     color: #fff;
@@ -54,11 +59,8 @@ div.results  {
     margin-left: 7px;
     cursor: pointer;
 }
-.results .zaloguj:hover{
-    box-shadow:0 0 3px #4285f4 ;
-}
 
-.results .aplikacje {
+.results .google_apps {
     width: 40px;
     top: 0px;
     padding: 7px 7px;
@@ -66,7 +68,7 @@ div.results  {
     cursor: pointer;
 }
 
-.results .aplikacje:hover {
+.results .google_apps:hover {
     background-color: #ececece5;
     padding: 7px 7px;
     border-radius: 30px;
@@ -79,6 +81,7 @@ div.results  {
 
 .results h2 a {
     color: rgb(0, 3, 166);
+    font-size: 20px;
 }
 
 .results h2 a:hover {
@@ -104,13 +107,18 @@ div.results  {
     color: rgb(139, 139, 139);
 }
 
-.results .opcje_wyszukiwania li{
+.results .top_nav {
+    display: block;
+    border-bottom: 1px solid rgb(228, 228, 228);
+}
+
+.results .search_options li{
     color: #5f6368;
     margin-top: -10px;
     font-size: 13px;
 }
 
-.results .elementy_wyszukiwnia {
+.results .search_elem {
     width: 580px;
     position: relative;
 }
@@ -125,7 +133,7 @@ div.results  {
 }
 
 
-.results #tools {
+.results .search_tools {
     margin-top: 20px;
     width: 700px;
     display: inline-block;
@@ -133,7 +141,7 @@ div.results  {
     color: #5f6368;
 }
 
-.results #tools #szukaj-ikona {
+.results .search_tools .search_icon {
     opacity: 0.8;
     width: 18px;
     height: 18px;
@@ -143,7 +151,7 @@ div.results  {
     cursor: pointer;
 }
 
-.results #tools #mikrofon {
+.results .search_tools .search_voice {
     width: 22px;
     position: absolute;
     top: -18px;
@@ -151,8 +159,15 @@ div.results  {
     cursor: pointer;
 }
 
+.results .search_tools .search_keyboard {
+    width: 20px;
+    position: absolute;
+    top: -16px;
+    left: 548px;
+    cursor: pointer;
+}
 
-.results #tools .line {
+.results .search_tools .line {
     border-left: 1px solid rgb(226, 226, 226);
     height: 28px;
     position: absolute;
@@ -160,7 +175,7 @@ div.results  {
     top: 8px;
 }
 
-.results #tools #usun {
+.results .search_tools .search_x {
     opacity: 0.8;
     width: 13px;
     position: absolute;
@@ -169,7 +184,7 @@ div.results  {
     cursor: pointer;
 }
 
-.results #tools input {
+.results .search_tools input {
     display: block;
     width: 100%;
     width: 690px;
@@ -182,45 +197,45 @@ div.results  {
     transition: box-shadow 100ms;
 }
 
-.results .tools input:hover {
+.results .search_tools input:hover {
     border: 1px solid #fff;
     box-shadow: 0 0 5px rgba(172, 172, 172, 0.822);
 }
 
-.results .opcje_wyszukiwania {
-    width: 700px;
+.results .search_options {
+    
+    width: 720px;
     margin-top: 30px;
     margin-left: 20px;
 }
 
-.results .lewa {
+.results .left {
     float: left;
     margin-right: 10px;
     margin-left: 0px;
 }
 
-.results .prawa{
+.results .right {
     float: right;
     margin-right: 10px;
     margin-left: 0px;
 }
 
-.results .opcje_wyszukiwania li {
+.results .search_options li {
     padding: 10px 5px;
 }
 
-.results .opcje_wyszukiwania li a {
-    padding: 5px 8px;
+.results .search_options li a {
     color: #5f6368;
-	font-family: Google Sans,arial,sans-serif;
-	font-size: 14px;
+    font-family: Google Sans,arial,sans-serif;
+    font-size: 14px;
+    padding: 5px 8px;
 }
 
-.results .narzedzia:hover{
-    background-color: rgb(243, 243, 243);
-    border: 1px solid rgb(194, 194, 194);
-    border-radius: 4px;
-    box-shadow: 0 0 2px rgba(172, 172, 172, 0.822);
+.results .tools:hover{
+    background-color: rgb(245, 245, 245);
+    border: 1px solid rgba(212, 212, 212, 0.822);
+    border-radius: 2px;
 }
 
 .results .search_options li.active {
@@ -231,29 +246,29 @@ div.results  {
     color: #1A73E8;
 }
 
-.results .wyniki_wyszukiwania {
+.results .searchResults {
     margin-left: 175px;
-    width: 580px;
+    width: 585px;
     display: inline-block;
 }
 
-.results .wyniki {
+.results .result {
     margin: 20px 0 20px 5px;
 }
 
-.results .ilosc_wynikow {
+.results .results_number {
     margin-top: 15px;
     color: rgb(110, 110, 110);
 }
 
-.results .wyniki p {
+.results .result p {
     margin: 3px 0 25px 0;
     color: #545454;
     line-height: 1.5em;
     font-size: 14px;
 }
 
-.results .wyniki button {
+.results .result button {
     font-size: 10px;
     line-height: 20px;
     color: rgb(71, 71, 71);
@@ -263,14 +278,14 @@ div.results  {
     cursor: pointer;
 }
 
-.results .podobne_wyniki h2 {
+.results .related_results h2 {
     margin-top: 3px;
     margin-left: 3px;
     margin-bottom: 20px;
     
 }
 
-.results .podobne_wyniki td {
+.results .related_results td {
     color: rgb(0, 3, 166);
     font-weight: bold;
     font-size: 14px;
@@ -280,7 +295,7 @@ div.results  {
 }
 
 
-.results table.strony {
+.results table.pages {
     position: relative;
     margin: 0 auto;
     text-align: center;
@@ -291,7 +306,7 @@ div.results  {
     margin-left: 150px;
 }
 
-.results .strona_nr {
+.results .page_nr {
     font-size: 12px;
     color: rgb(50, 93, 246);
     letter-spacing: normal;
@@ -299,35 +314,34 @@ div.results  {
     cursor: pointer;
 }
 
-.results .nastepna_strzalka {
+.results .arrow {
     font-size: 14px;
     font-weight: bold;
     margin-left: -50px;
-    color:rgb(0, 3, 166);
     cursor: pointer;
 }
 
-.results .strona_nr:hover{
+.results .page_nr:hover{
     text-decoration: underline;
 }
 
-.results .niebieski {
+.results .blue {
     color: #518dee;
 }
 
-.results .czerwony {
+.results .red {
     color: rgb(241, 46, 46);
 }
 
-.results .zielony {
+.results .green {
     color: rgb(49, 177, 37);
 }
 
-.results .zolty {
+.results .yellow {
     color: rgb(247, 200, 59);
 }
 
-.results .strony .strona_nr {
+.results .pages .page_nr {
     font-size: 14px;
     font-weight: normal;
 }
@@ -341,15 +355,15 @@ div.results  {
     font-size: 14px;
 }
 
-.results .footer p a.kraj {
+.results .footer p a.country {
     margin-right: 24px;
 }
 
-.results .footer p a.lok_wiecej {
+.results .footer p a.loc_more {
     cursor: pointer;
 }
 
-.results .footer p a.lok_wiecej:hover {
+.results .footer p a.loc_more:hover {
     color:rgb(73, 73, 73);
 }
 
@@ -360,7 +374,6 @@ div.results  {
 
 .results .footer p a strong {
     color: black;
-    font-weight: bolder;
 }
 
 .results .footer p {
@@ -377,7 +390,7 @@ div.results  {
     color: rgb(114, 114, 114);
 }
 
-.results .lok{
+.results .localization {
     border-bottom: 1px solid rgb(190, 190, 190);
 }
 
@@ -394,19 +407,10 @@ div.results  {
     display: none;
 }
 
-.results #main {
+.results .search {
     display: none;
 }
 
-.results #nav{
+.results .home_futter{
     display:none;
-}
-
-.results .wyniki_wyszukiwania .cities ul li{
-    color:rgb(0, 3, 166);
-    list-style: circle;
-    font-size: 15px;
-    display: list-item;
-    margin-left: 15px;
-    padding: 5px;
 }

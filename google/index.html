@@ -4,142 +4,135 @@
   <head>
     <meta charset="utf-8">
     <title>Szukaj w Google</title>
-   <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon"  href="images_google/icon.png">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" type="text/css" href="style2.css">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
-    <script src="cities.js"></script>
+    <script src="./cities.js"></script>
   </head>
 
-  <body>
-    <div id="app" :class="[wyszukaj.length > 0 ? 'results' : 'home']">  <!--home-->
-         <nav class="nav_tools">
-             <a href="#">Gmail</a>
-             <a href="#">Grafika</a>
-             <img src="google-img/app.jpg"class="aplikacje" role="button"></img>
-             <button>Zaloguj się</button>
-                    
-        </nav>
-        <section id="main">
-            <img src="google-img/logo.png" id="logo">
-            <form>
-              <br><br>
-              <div class="wyszukaj">
-                
-                <div id="szukaj">
-                  <div class="pasek">
-                    <div class="text">
-                      <div class="widok">
+  <body> 
+    <!--class="home" for google home page / class="results" for google results page-->
+    <div id="app" :class="[change_class == 1 ? 'results' : 'home']"> 
+      
+    <nav class="nav_tools">
+        <a href ="#">Gmail</a>
+        <a href ="#">Grafika</a>
+        <img src="google-img/app.jpg" class="google_apps" role="button"></img>
+        <button>Zaloguj się</button>
+    </nav>
 
-                    <img src="google-img/szukaj.png" @click="potwierdz" id="szukaj-ikona">
-                    <input ref="first" v-model="googleSearch" @keyup.enter="potwierdz" type="text" >
-                    <img src="google-img/mikrofon.png" id="mikrofon">
-                  </div>
-                </div>
-                <div class="lista">
-                      <ul v-for="miasto in filtredCities" @click="uzupelnij(miasto)">
-                          <img class="lupa1" src="google-img/lupa.png" title="Szukaj">
-                          {{googleSearch}}<b>{{ miasto.name.substring(googleSearch.length) }}</b>
-                      </ul>
-                  
-                
+    <section class="search">
+        <img src="google-img/logo.png" class="logo">
+        <form><br><br>
+            <div class="search_elements">
+              <div class="dropdown_content">
+                <input @focus="foc" ref="first" v-model="googleSearch" type="text" class="search_input" v-on:keyup.down="downClick" v-on:keyup.up="upClick" v-on:keyup.enter="enterClick"/>
+                <div class="bottom_border"></div>
+                <div class="list">
+                  <ul v-for="(city, index) in filteredCities" v-on:click="update_input(city.name)">
+                    <li :class="{grey_content: index == list_counter}">
+                        <a v-on:click="choose(index)" v-html="boldCity(city)">{{ city }}</a>
+                    </li>
+                  </ul>
                 </div>
               </div>
-                    <input type="button" id="szukaj-w-google" @click="potwierdz"  value="Szukaj w Google">
-                    <input type="button" id="szczesliwy-traf" value="Szczęśliwy traf">
-                </div>
-              </div>
-            </form>
-        </section>
-
-        <footer id="nav">
-            <h4>Polska</h4>
-            <div id="stopka">
-                <div id="lewa">
-                    <a href="#" >O nas</a>
-                    <a href="#" >Reklamuj się</a>
-                    <a href="#" >Dla firm</a>
-                    <a href="#" >Jak działa wyszukiwarka</a>
-                </div>
-                <div id="centrum">
-                    <a href="#"><img src="google-img/leaf.png" id="listek">Nautralność węglowa od 2007 roku</a>
-                </div>
-                <div id="prawa">
-                    <a href="#" >Prywatność</a>
-                    <a href="#" >Warunki</a>
-                    <a href="#" >Ustawienia</a>
-                </div>
+                <img src="google-img/szukaj.png" class="search_icon"/>
+                <img src="google-img/mikrofon.png" class="search_voice"/>
+                <input v-on:click="change_page" type="button" class="search_button" value="Sukaj w google"/>
+                <input v-on:click="change_page" type="button" class="search_button" value="Szczęśliwy traf"/>
             </div>
-        </footer>
+        </form>
+    </section>
+
+    <footer class="home_futter">
+        <h4>Polska</h4>
+        <div class="links">
+            <div class="link_1">
+                <a href="#">O nas</a>
+                <a href="#">Reklamuj się</a>
+                <a href="#">Dla firm</a>
+                <a href="#">Jak działa wyszukiwarka</a>
+            </div>
+            <div class="link_2">
+                <a href="#"><img src="google-img/leaf.png" class="leaf">Nautralność węglowa od 2007 roku</a>
+            </div>
+            <div class="link_3">
+                <a href="#">Prywatność</a>
+                <a href="#">Warunki</a>
+                <a href="#">Ustawienia</a>
+            </div>
+        </div>
+    </footer>
 
     
     <div class="top_nav">
 
-        <img src="google-img/logo.png" alt="">
+        <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt=""  v-on:click="change_page()">
 
-        <ul class="konto">
-          <li><a href="#"><img src="google-img/app.jpg" class="aplikacje" role="button"></a></li>
-          <li><button class="zaloguj" type="button" name="button">Zaloguj się</button></li>
+        <ul class="accountOptions">
+          <li><a href="#"><img src="google-img/app.jpg" class="google_apps" role="button"></a></li>
+          <li><button class="signIn" type="button" name="button">Zaloguj się</button></li>
         </ul>
-    <div id="tools">
-        <div class="elementy_wyszukiwnia">
-          <div id="szukaj">
-            <input ref="second" type="text" v-model="googleSearch" >
-            <img src="google-img/szukaj.png" id="szukaj-ikona">
-            <img src="google-img/mikrofon.png" id="mikrofon">
-            <div class="line"></div>
-            <img src="google-img/x.png" id="usun">
-        </div>
 
-          <ul class="opcje_wyszukiwania">
-            <li class="glowna"><a href="#">Wszystko</a></li>
-            <li class="lewa"><a href="#">Wiadomości</a></li>
-            <li class="lewa"><a href="#">Grafika</a></li>
-            <li class="lewa"><a href="#">Wideo</a></li>
-            <li class="lewa"><a href="#">Mapy</a></li>
-            <li class="lewa"><a href="#">Więcej</a></li>
-            <li class="prawa"><a class="narzedzia" href="#">Narzędzia</a></li>
-            <li class="prawa"><a href="#">Ustawienia</a></li>
+        <div class="search_tools">
+
+          <div class="search_elem">
+            <input ref="second" type="text" v-model="googleSearch"/>
+            <img src="google-img/szukaj.png" class="search_icon">
+            <img src="google-img/mikrofon.png" class="search_voice">
+            <img src="google-img/klawiatura.png" class="search_keyboard">
+            <div class="line"></div>
+            <img src="google-img/x.png" class="search_x">
+          </div>
+
+          <ul class="search_options">
+            <li class="left active"><a href="#">Wszystko</a></li>
+            <li class="left"><a href="#">Wiadomości</a></li>
+            <li class="left"><a href="#">Grafika</a></li>
+            <li class="left"><a href="#">Wideo</a></li>
+            <li class="left"><a href="#">Mapy</a></li>
+            <li class="left"><a href="#">Więcej</a></li>
+            <li class="right"><a class="tools" href="#">Narzędzia</a></li>
+            <li class="right"><a href="#">Ustawienia</a></li>
           </ul>
           
         </div>
 
-      </div> 
-   
+    </div> 
 
-    <div class="wyniki_wyszukiwania">
+    <div class="searchResults">
 
-
-
-        <p class="ilosc_wynikow">Około 288 000 000 wyników (0,75 s) </p>
+      <p class="ilosc_wynikow">Około 288 000 000 wyników (0,75 s) </p>
       
-        <div class="wyniki">
-          <a class="link" href="#">pl.wikipedia.org › wiki › Star_Trek </a><button>▼</button>
-          <h2><a href="#">Star Trek – Wikipedia, wolna encyklopedia</a></h2>
-          <p>Oryginalny serial Star Trek, w skrócie nazywany TOS (ang. Star Trek: The Original Series) został zakończony po trzech sezonach, w roku 1969, z powodu niskiej ...</p>
-        </div>
+      <div class="result">
+        <a class="link" href="#">pl.wikipedia.org › wiki › Star_Trek </a><button>▼</button>
+        <h2><a href="#">Star Trek – Wikipedia, wolna encyklopedia</a></h2>
+        <p>Oryginalny serial Star Trek, w skrócie nazywany TOS (ang. Star Trek: The Original Series) został zakończony po trzech sezonach, w roku 1969, z powodu niskiej ...</p>
+      </div>
 
-        <div class="wyniki">
-          <a class="link" href="#">pl.wikipedia.org › wiki › Star_Trek:_Enterprise </a><button>▼</button>
-          <h2><a href="#"> Star Trek: Enterprise – Wikipedia, wolna encyklopedia</a></h2>
-          <p>Przez anulowanie serialu sezon 2005/2006 stał się pierwszym od osiemnastu lat, gdy żaden nowy odcinek Star Treka nie pojawił się w telewizji. W Polsce ...</p>
-        </div>
+      <div class="result">
+        <a class="link" href="#">pl.wikipedia.org › wiki › Star_Trek:_Enterprise </a><button>▼</button>
+        <h2><a href="#"> Star Trek: Enterprise – Wikipedia, wolna encyklopedia</a></h2>
+        <p>Przez anulowanie serialu sezon 2005/2006 stał się pierwszym od osiemnastu lat, gdy żaden nowy odcinek Star Treka nie pojawił się w telewizji. W Polsce ...</p>
+      </div>
 
-        <div class="wyniki">
-          <a class="link" href="#">www.filmweb.pl › film › Star+Trek-2009-324810</a><button>▼</button>
-          <h2><a href="#">Star Trek (2009) - Filmweb</a></h2> 
-          <p>Star Trek (2009) - Początki załogi USS Enterprise. James Kirk i Spock łączą siły, by ocalić swoich przyjaciół przed śmiertelnym niebezpieczeństwem.</p>
-        </div>
+      <div class="result">
+        <a class="link" href="#">www.filmweb.pl › film › Star+Trek-2009-324810</a><button>▼</button>
+        <h2><a href="#">Star Trek (2009) - Filmweb</a></h2> 
+        <p>Star Trek (2009) - Początki załogi USS Enterprise. James Kirk i Spock łączą siły, by ocalić swoich przyjaciół przed śmiertelnym niebezpieczeństwem.</p>
+      </div>
 
-        <div class="wyniki">
-          <a class="link" href="#">www.filmweb.pl › serial › Star+Trek-1966-31454</a><button>▼</button>
-          <h2><a href="#">Star Trek (Serial TV 1966-1969) - Filmweb</a></h2> 
-          <p>Star Trek (1966) - XXIII wiek. Załoga statku kosmicznego Enterprise, pod dowództwem Kapitana Jamesa T. Kirka, eksploruje galaktykę w poszukiwaniu nowych ...</p>
-        </div>
+      <div class="result">
+        <a class="link" href="#">www.filmweb.pl › serial › Star+Trek-1966-31454</a><button>▼</button>
+        <h2><a href="#">Star Trek (Serial TV 1966-1969) - Filmweb</a></h2> 
+        <p>Star Trek (1966) - XXIII wiek. Załoga statku kosmicznego Enterprise, pod dowództwem Kapitana Jamesa T. Kirka, eksploruje galaktykę w poszukiwaniu nowych ...</p>
+      </div>
 
-        <br>
-        <div class="podobne_wyniki">
+      <br>
+        <div class="related_results">
 
-          <h2>Podobne wyszukiwania</h2>
+          <h2>Wyszukiwania podobne do: star trek</h2>
 
           <table>
             <tr>
@@ -162,43 +155,42 @@
 
         </div>
 
-
         <br><br>
 
-          <table class="strony">
+          <table class="pages">
             <tr>
-              <td><span class="niebieski">G</span></td>
-              <td><span class="czerwony">o</span></td>
-              <td><span class="zolty">o</span></td>
-              <td><span class="zolty">o</span></td>
-              <td><span class="zolty">o</span></td>
-              <td><span class="zolty">o</span></td>
-              <td><span class="zolty">o</span></td>
-              <td><span class="zolty">o</span></td>
-              <td><span class="zolty">o</span></td>
-              <td><span class="zolty">o</span></td>
-              <td><span class="zolty">o</span></td>
-              <td><span class="niebieski">g</span></td>
-              <td><span class="zielony">l</span></td>
-              <td><span class="czerwony">e</span></td>
+              <td><span class="blue">G</span></td>
+              <td><span class="red">o</span></td>
+              <td><span class="yellow">o</span></td>
+              <td><span class="yellow">o</span></td>
+              <td><span class="yellow">o</span></td>
+              <td><span class="yellow">o</span></td>
+              <td><span class="yellow">o</span></td>
+              <td><span class="yellow">o</span></td>
+              <td><span class="yellow">o</span></td>
+              <td><span class="yellow">o</span></td>
+              <td><span class="yellow">o</span></td>
+              <td><span class="blue">g</span></td>
+              <td><span class="green">l</span></td>
+              <td><span class="red">e</span></td>
               <td rowspan="2" style="width: 10px;"></td>
-              <td><span class="nastepna_strzalka">></span></td>
+              <td><span class="blue arrow">></span></td>
             </tr>
 
             <tr>
-              <td class="strona_nr"></td>
-              <td class="strona_nr" style="color: black; cursor: text;">1</td>
-              <td class="strona_nr">2</td>
-              <td class="strona_nr">3</td>
-              <td class="strona_nr">4</td>
-              <td class="strona_nr">5</td>
-              <td class="strona_nr">6</td>
-              <td class="strona_nr">7</td>
-              <td class="strona_nr">8</td>
-              <td class="strona_nr">9</td>
-              <td class="strona_nr">10</td>
+              <td class="page_nr"></td>
+              <td class="page_nr" style="color: black; cursor: text;">1</td>
+              <td class="page_nr">2</td>
+              <td class="page_nr">3</td>
+              <td class="page_nr">4</td>
+              <td class="page_nr">5</td>
+              <td class="page_nr">6</td>
+              <td class="page_nr">7</td>
+              <td class="page_nr">8</td>
+              <td class="page_nr">9</td>
+              <td class="page_nr">10</td>
               <td colspan="3"></td>
-              <td class="strona_nr">Następna</td>
+              <td class="page_nr">Następna</td>
             </tr>
 
           </table>
@@ -207,11 +199,11 @@
 
       <div class="footer">
 
-        <div class="lokalizacja">
+        <div class="localization">
         <p>
-          <a class="kraj">Polska</a>
-          <a class="lok"><strong>26-332</strong> - Z Twoich miejsc (dom) </a>
-          <a class ="lok_dalej">- Użyj dokładnej lokalizacji</a><a class ="lok_wiecej"> - Dowiedz się więcej</a>
+          <a class="country">Polska</a>
+          <a class="loc"><strong>Kraków</strong> - Z Twojego adresu internetowego </a>
+          <a class ="loc_more">- Użyj dokładnej lokalizacji</a><a class ="loc_more"> - Dowiedz się więcej</a>
         </p>
       </div>
 
@@ -223,33 +215,150 @@
         </ul>
         
       </div>
-  </div>
+    </div>
 </body>
 <script>
   var app = new Vue({
-               el: "#app",
-               data: {
-                   googleSearch:"",
-                   wyszukaj:"",
-                   cities: window.cities,
-               },
-               computed: {
-                   filtredCities() {
-                       let wyniki = this.cities.filter(miasto => miasto.name.startsWith(this.googleSearch) || miasto.name.toLowerCase().startsWith(this.googleSearch));
-                       if (this.googleSearch.length > 0) {
-                           return wyniki.slice(0, 10);
-                       }
-                   }
-               },
-               methods: {
-                   potwierdz() {
-                       this.wyszukaj = this.googleSearch
-                   },
-                   uzupelnij(miasto) {
-                       this.googleSearch = miasto.name;
-                       this.wyszukaj = this.googleSearch;
-                   },
-               }
-           });
+    el: '#app',
+    data: {
+      selected_city: '',
+      googleSearch: '',
+      googleSearch_temp: '',
+      cities_update: true,
+      change_class: 0,
+      cities: window.cities,
+      list_counter: -1,
+      foc: true,
+    },
+
+    computed: {
+      // filteredCities: function() {
+      //   if (this.googleSearch.length > 0){
+          
+      //       let result = this.cities.filter(city => city.name.includes(this.googleSearch));
+      //       if(result.length > 10){
+      //         result = result.slice(1,11);
+      //       }
+      //       return result;
+          
+      //   }
+      // },
+    },
+
+    watch: {
+
+      list_counter: function(){
+        this.cities_update = false;
+        this.googleSearch = this.filteredCities[this.list_counter].name;
+      },
+
+      googleSearch: function(){
+        if(this.googleSearch.length == 0){
+          this.filteredCities = '';
+        }
+        else{
+          this.createFilteredCities(this.cities_update);
+          this.cities_update=true;
+          if(this.list_counter == -1){
+            this.googleSearch_temp = this.googleSearch; 
+            this.createFilteredCities(true);     
+          }
+        }
+      },
+
+    },
+
+    methods: {
+
+    createFilteredCities(bool){
+        if(bool){
+          let result = this.cities.filter(city => city.name.includes(this.googleSearch));
+          if(result.length > 10){
+             this.filteredCities = result.slice(1, 11);
+          }
+          else{
+            this.filteredCities = result;
+          }
+        this.list_counter = -1;
+           
+      }
+    },
+
+    change_page() {
+        if (this.change_class == 0){
+          this.change_class = 1;
+        }
+        else{
+          this.googleSearch = '';
+          this.change_class = 0;
+        }
+    },
+
+    update_input(name){
+        this.googleSearch = name;
+        this.change_page(); //automatyczne przekierowanie po kliknieciu
+    },
+        
+    choose(i){
+        this.googleSearch = this.filteredCities[i].name;
+    },
+
+    enterClick() {
+      if(this.list_counter != -1){ 
+        this.googleSearch = this.filteredCities[this.list_counter].name
+        this.list_counter = -1;
+        this.change_page();
+        this.foc = false;
+      }
+      else{
+        this.change_page();
+      }
+    },
+
+    upClick() {
+      if(this.list_counter > -1){
+        this.list_counter -= 1;
+      }
+      else if(this.list_counter == 0){
+        this.list_counter = this.filteredCities.length - 1;
+      }
+    },
+
+    downClick() {
+      if(this.list_counter < this.filteredCities.length - 1){
+        this.list_counter += 1;
+      }
+      else if(this.list_counter == this.filteredCities.length - 1){
+        this.list_counter = -1;
+      }
+    },
+
+  boldCity(input_city){
+    let regex = new RegExp(this.googleSearch_temp, "gi");
+    let bold = "<b>" + 
+      input_city.name.replace(regex, match =>
+          {return "<span class='thin'>"+ match +"</span>";}) 
+              + "</b>";
+      return bold;
+  }
+
+
+  }
+
+    // updated() {
+    //     this.$nextTick(() => {
+
+    //     if (this.googleSearch.length > 0) {
+
+    //     this.$refs.second.focus();
+
+    //     } else {
+
+    //     this.$refs.first.focus();
+
+    //     }
+    //   })
+    // }
+});
 </script>
 </html>
