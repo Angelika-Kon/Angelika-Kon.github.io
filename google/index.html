@@ -1,350 +1,263 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="pl">
 
-  <head>
-    <meta charset="utf-8">
-    <title>Szukaj w Google</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="stylesheet" type="text/css" href="style2.css">
-    <link rel="stylesheet" type="text/css" href="autocompleter.css">
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
-    <script src="./cities.js"></script>
-    <script src="./autocompleter.js"></script>
+    <head>
+        <meta charset="utf-8">
+        <title>Szukaj w Google</title>
+        <link rel="icon"  href="icon.png">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="style2.css">
+        <link rel="stylesheet" type="text/css" href="autocompleter.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+        <script src="./cities.js"></script>
+        <script src="./autocompleter.js"></script>
+      </head>
 
-  </head>
+      <body> 
 
-  <body> 
-    <!--class="home" for google home page / class="results" for google results page-->
-    <div id="app" :class="[change_class == 1 ? 'results' : 'home']"> 
-      
-    <nav class="nav_tools">
-        <a href ="#">Gmail</a>
-        <a href ="#">Grafika</a>
-        <img src="google-img/app.jpg" class="google_apps" role="button"></img>
-        <button>Zaloguj się</button>
-    </nav>
-
-    <section class="search">
-        <img src="google-img/logo.png" class="logo">
-        <form><br><br>
-            <div class="search_elements">
-              <div class="dropdown_content">
-                <input @focus="foc" ref="first" v-model="googleSearch" type="text" class="search_input" v-on:keyup.down="downClick" v-on:keyup.up="upClick" v-on:keyup.enter="enterClick"/>
-                <div class="bottom_border"></div>
-                <div class="list">
-                  <ul v-for="(city, index) in filteredCities" v-on:click="update_input(city.name)">
-                    <li :class="{grey_content: index == list_counter}">
-                        <a v-on:click="choose(index)" v-html="boldCity(city)">{{ city }}</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-                <img src="google-img/szukaj.png" class="search_icon"/>
-                <img src="google-img/mikrofon.png" class="search_voice"/>
-                <input v-on:click="change_page" type="button" class="search_button" value="Sukaj w google"/>
-                <input v-on:click="change_page" type="button" class="search_button" value="Szczęśliwy traf"/>
-            </div>
-        </form>
-    </section>
-
-    <footer class="home_futter">
-        <h4>Polska</h4>
-        <div class="links">
-            <div class="link_1">
-                <a href="#">O nas</a>
-                <a href="#">Reklamuj się</a>
-                <a href="#">Dla firm</a>
-                <a href="#">Jak działa wyszukiwarka</a>
-            </div>
-            <div class="link_2">
-                <a href="#"><img src="google-img/leaf.png" class="leaf">Nautralność węglowa od 2007 roku</a>
-            </div>
-            <div class="link_3">
-                <a href="#">Prywatność</a>
-                <a href="#">Warunki</a>
-                <a href="#">Ustawienia</a>
-            </div>
-        </div>
-    </footer>
-
+        <div id="app" :class="[change_class == 1 ? 'results' : 'home']"> 
+          
+        <nav class="nav_tools">
+            <a href ="#">Gmail</a>
+            <a href ="#">Grafika</a>
+            <img src="google-img/app.jpg" class="google_apps" role="button"></img>
+            <button>Zaloguj się</button>
+        </nav>
     
-    <div class="top_nav">
+        <section class="search">
+            <img src="google-img/logo.png" class="logo">
+            <form><br><br>
+                <div class="search_elements">
+                  <v-autocompleter v-model="googleSearch" :options="cities" @enter="showResults"></v-autocompleter>
+                    <img src="google-img/szukaj.png" class="search_icon"/>
+                    <img src="google-img/mikrofon.png" class="search_voice"/>
+                    <input  type="button" class="search_button" value="Sukaj w google"/>
+                    <input  type="button" class="search_button" value="Szczęśliwy traf"/>
+                </div>
+            </form>
+        </section>
+    
+        <footer class="home_futter">
+            <h4>Polska</h4>
+            <div class="links">
+                <div class="link_1">
+                    <a href="#">O nas</a>
+                    <a href="#">Reklamuj się</a>
+                    <a href="#">Dla firm</a>
+                    <a href="#">Jak działa wyszukiwarka</a>
+                </div>
+                <div class="link_2">
+                    <a href="#"><img src="google-img/leaf.png" class="leaf">Nautralność węglowa od 2007 roku</a>
+                </div>
+                <div class="link_3">
+                    <a href="#">Prywatność</a>
+                    <a href="#">Warunki</a>
+                    <a href="#">Ustawienia</a>
+                </div>
+            </div>
+        </footer>
+    
+        <div class="top_nav">
+    
+            <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png"  alt="">
+    
+            <ul class="accountOptions">
+              <li><a href="#"><img src="google-img/app.jpg" class="google_apps" role="button"></a></li>
+              <li><button class="signIn" type="button" name="button">Zaloguj się</button></li>
+            </ul>
+    
+            <div class="search_tools">
+    
+              <div class="search_elem">
+                <input ref="second" type="text" v-model="googleSearch"/>
+                <img src="google-img/szukaj.png" class="search_icon">
+                <img src="google-img/mikrofon.png" class="search_voice">
+                <img src="google-img/klawiatura.png" class="search_keyboard">
+                <div class="line"></div>
+                <img src="google-img/x.png" class="search_x">
+              </div>
+    
+              <ul class="search_options">
+                <li class="left active"><a href="#">Wszystko</a></li>
+                <li class="left"><a href="#">Wiadomości</a></li>
+                <li class="left"><a href="#">Grafika</a></li>
+                <li class="left"><a href="#">Wideo</a></li>
+                <li class="left"><a href="#">Mapy</a></li>
+                <li class="left"><a href="#">Więcej</a></li>
+                <li class="right"><a class="tools" href="#">Narzędzia</a></li>
+                <li class="right"><a href="#">Ustawienia</a></li>
+              </ul>
+              
+            </div>
+    
+        </div> 
+    
+        <div class="searchResults">
 
-        <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt=""  v-on:click="change_page()">
+          <p class="results_number">Około 966 000 000 wyników (0,60 s) (0,79 s)</p>
 
-        <ul class="accountOptions">
-          <li><a href="#"><img src="google-img/app.jpg" class="google_apps" role="button"></a></li>
-          <li><button class="signIn" type="button" name="button">Zaloguj się</button></li>
-        </ul>
-
-        <div class="search_tools">
-
-          <div class="search_elem">
-            <input ref="second" type="text" v-model="googleSearch"/>
-            <img src="google-img/szukaj.png" class="search_icon">
-            <img src="google-img/mikrofon.png" class="search_voice">
-            <img src="google-img/klawiatura.png" class="search_keyboard">
-            <div class="line"></div>
-            <img src="google-img/x.png" class="search_x">
+          <div class="result">
+              <a class="link" href="#">https://pl.wikipedia.org/wiki/Portoryko</a>
+              <h2><a href="#">Portoryko – Wikipedia, wolna encyklopedia ...</a></h2>
+              <p>Wyspa Puerto Rico w okresie prekolumbijskim zamieszkiwana była przez ... Państwo Stowarzyszone Portoryko” (Estado Libre Asociado de Puerto Rico) nie jest ...</p>
           </div>
-
-          <ul class="search_options">
-            <li class="left active"><a href="#">Wszystko</a></li>
-            <li class="left"><a href="#">Wiadomości</a></li>
-            <li class="left"><a href="#">Grafika</a></li>
-            <li class="left"><a href="#">Wideo</a></li>
-            <li class="left"><a href="#">Mapy</a></li>
-            <li class="left"><a href="#">Więcej</a></li>
-            <li class="right"><a class="tools" href="#">Narzędzia</a></li>
-            <li class="right"><a href="#">Ustawienia</a></li>
-          </ul>
-          
-        </div>
-
-    </div> 
-
-    <div class="searchResults">
-
-      <p class="ilosc_wynikow">Około 288 000 000 wyników (0,75 s) </p>
       
-      <div class="result">
-        <a class="link" href="#">pl.wikipedia.org › wiki › Star_Trek </a><button>▼</button>
-        <h2><a href="#">Star Trek – Wikipedia, wolna encyklopedia</a></h2>
-        <p>Oryginalny serial Star Trek, w skrócie nazywany TOS (ang. Star Trek: The Original Series) został zakończony po trzech sezonach, w roku 1969, z powodu niskiej ...</p>
-      </div>
+          <div class="result">
+              <a class="link" href="#">https://pl.wikipedia.org/wiki/Puerto_Rico</a>
+              <h2><a href="#"> Puerto Rico – Wikipedia, wolna encyklopedia</a></h2>
+              <p>Poniżej znajdują się różne znaczenia hasła „Puerto Rico”. Puerto Rico, Portoryko – terytorium zorganizowane nieinkorporowane Stanów Zjednoczonych. Miasta.</p>
+          </div>
+      
+          <div class="result">
+              <a class="link" href="#">https://en.wikipedia.org/wiki/Puerto_Rico</a>
+              <h2><a href="#">Puerto Rico - Wikipedia</a></h2>
+              <p>('Free Associated State of Puerto Rico') is a Caribbean island and unincorporated territory of the United States. It is located in the northeast Caribbean Sea, ...</p>
+          </div>
+      
+          <div class="result">
+              <a class="link" href="#">https://www.blue-sails.com/puerto-rico-czartery-jachtow/</a>
+              <h2><a href="#">Puerto Rico – Tropikalna róznorodność | Czartery ... - Blue Sails</a></h2>
+              <p>Bogactwo Puerto Rico stanowią kilometry piaszczystych plaż, tropikalne lasy, góry i doliny, rum, egzotyczna kuchnia oraz kolonialna architektura. Wszystko to ...</p>
+          </div>
+      
+          <div class="result">
+              <a class="link" href="#">https://www.discoverpuertorico.com/</a>
+              <h2><a href="#">Discover Puerto Rico: Puerto Rico Travel Guide | Visitor ...</a></h2>
+              <p>Dare to discover the many treasures of Puerto Rico. Find travel information, tips and more from the island's official tourism website.</p>
+          </div>
+      
+      
+      
+          <div class="result">
+              <a class="link" href="#">https://www.lacerta.pl/nasze-gry/puerto-rico</a>
+              <h2><a href="#">Puerto Rico - Wydawnictwo Lacerta</a></h2>
+              <p>Puerto Rico jest grą, która wielu miesięcy utrzymuje się na pierwszym miejscu największego na świecie internetowego rankingu gier planszowych ...</p>
+          </div>
+      
+          <div class="result">
+              <a class="link" href="#">https://r.pl/florida-puerto-rico-latynoski-rytm/zakwaterowanie-ust</a>
+              <h2><a href="#">Florida & Puerto Rico - Latynoski rytm (Stany Zjednoczone ...</a></h2>
+              <p>Miami i bajeczne plaży Florydy * pełna gwiazd South Beach i pachnąca cygarami Little Havana * centrum lotów kosmicznych – Cape Canaveral * Centrum ...</p>
+          </div>
+      
+          <div class="result">
+              <a class="link" href="#">https://www.trivago.pl/puerto-rico-33659/hotel</a>
+              <h2><a href="#">Puerto Rico — hotele | Znajdź i porównaj znakomite oferty na ...</a></h2>
+              <p>Porównaj ceny 13013 hoteli — Puerto Rico, Puerto Rico. Wybierz idealną dla siebie ofertę spośród tych dostępnych na trivago.pl i zaoszczędź!</title></p>
+          </div>
+      
 
-      <div class="result">
-        <a class="link" href="#">pl.wikipedia.org › wiki › Star_Trek:_Enterprise </a><button>▼</button>
-        <h2><a href="#"> Star Trek: Enterprise – Wikipedia, wolna encyklopedia</a></h2>
-        <p>Przez anulowanie serialu sezon 2005/2006 stał się pierwszym od osiemnastu lat, gdy żaden nowy odcinek Star Treka nie pojawił się w telewizji. W Polsce ...</p>
-      </div>
+<br>
 
-      <div class="result">
-        <a class="link" href="#">www.filmweb.pl › film › Star+Trek-2009-324810</a><button>▼</button>
-        <h2><a href="#">Star Trek (2009) - Filmweb</a></h2> 
-        <p>Star Trek (2009) - Początki załogi USS Enterprise. James Kirk i Spock łączą siły, by ocalić swoich przyjaciół przed śmiertelnym niebezpieczeństwem.</p>
-      </div>
+<div class="related_results">
 
-      <div class="result">
-        <a class="link" href="#">www.filmweb.pl › serial › Star+Trek-1966-31454</a><button>▼</button>
-        <h2><a href="#">Star Trek (Serial TV 1966-1969) - Filmweb</a></h2> 
-        <p>Star Trek (1966) - XXIII wiek. Załoga statku kosmicznego Enterprise, pod dowództwem Kapitana Jamesa T. Kirka, eksploruje galaktykę w poszukiwaniu nowych ...</p>
-      </div>
+  <h2>Wyszukiwania podobne do: star trek</h2>
 
-      <br>
-        <div class="related_results">
+  <table>
+    <tr>
+      <td>Star trek (2009)</td>
+      <td>star strek: następne pokolenie</td>
+    </tr>
+    <tr>
+      <td>Star Trek: W nieznane</td>
+      <td>Star Trek chronologia</td>
+    </tr>
+    <tr>
+      <td>star trek: seria orginalna</td>
+      <td>Star Trek: Picard</td>
+    </tr>
+    <tr>
+      <td>Star Trek: Discovery</td>
+      <td>Star Trek: Picard Netflix</td>
+    </tr>
+  </table>
 
-          <h2>Wyszukiwania podobne do: star trek</h2>
+</div>
 
-          <table>
-            <tr>
-              <td>Star trek (2009)</td>
-              <td>star strek: następne pokolenie</td>
-            </tr>
-            <tr>
-              <td>Star Trek: W nieznane</td>
-              <td>Star Trek chronologia</td>
-            </tr>
-            <tr>
-              <td>star trek: seria orginalna</td>
-              <td>Star Trek: Picard</td>
-            </tr>
-            <tr>
-              <td>Star Trek: Discovery</td>
-              <td>Star Trek: Picard Netflix</td>
-            </tr>
-          </table>
+<br><br>
 
-        </div>
+<table class="pages">
+    <tr>
+      <td><span class="blue">G</span></td>
+      <td><span class="red">o</span></td>
+      <td><span class="yellow">o</span></td>
+      <td><span class="yellow">o</span></td>
+      <td><span class="yellow">o</span></td>
+      <td><span class="yellow">o</span></td>
+      <td><span class="yellow">o</span></td>
+      <td><span class="yellow">o</span></td>
+      <td><span class="yellow">o</span></td>
+      <td><span class="yellow">o</span></td>
+      <td><span class="yellow">o</span></td>
+      <td><span class="blue">g</span></td>
+      <td><span class="green">l</span></td>
+      <td><span class="red">e</span></td>
+      <td rowspan="2" style="width: 10px;"></td>
+      <td><span class="blue arrow">></span></td>
+    </tr>
 
-        <br><br>
+    <tr>
+      <td class="page_nr"></td>
+      <td class="page_nr" style="color: black; cursor: text;">1</td>
+      <td class="page_nr">2</td>
+      <td class="page_nr">3</td>
+      <td class="page_nr">4</td>
+      <td class="page_nr">5</td>
+      <td class="page_nr">6</td>
+      <td class="page_nr">7</td>
+      <td class="page_nr">8</td>
+      <td class="page_nr">9</td>
+      <td class="page_nr">10</td>
+      <td colspan="3"></td>
+      <td class="page_nr">Następna</td>
+    </tr>
 
-          <table class="pages">
-            <tr>
-              <td><span class="blue">G</span></td>
-              <td><span class="red">o</span></td>
-              <td><span class="yellow">o</span></td>
-              <td><span class="yellow">o</span></td>
-              <td><span class="yellow">o</span></td>
-              <td><span class="yellow">o</span></td>
-              <td><span class="yellow">o</span></td>
-              <td><span class="yellow">o</span></td>
-              <td><span class="yellow">o</span></td>
-              <td><span class="yellow">o</span></td>
-              <td><span class="yellow">o</span></td>
-              <td><span class="blue">g</span></td>
-              <td><span class="green">l</span></td>
-              <td><span class="red">e</span></td>
-              <td rowspan="2" style="width: 10px;"></td>
-              <td><span class="blue arrow">></span></td>
-            </tr>
+  </table>
+</div>
 
-            <tr>
-              <td class="page_nr"></td>
-              <td class="page_nr" style="color: black; cursor: text;">1</td>
-              <td class="page_nr">2</td>
-              <td class="page_nr">3</td>
-              <td class="page_nr">4</td>
-              <td class="page_nr">5</td>
-              <td class="page_nr">6</td>
-              <td class="page_nr">7</td>
-              <td class="page_nr">8</td>
-              <td class="page_nr">9</td>
-              <td class="page_nr">10</td>
-              <td colspan="3"></td>
-              <td class="page_nr">Następna</td>
-            </tr>
+<div class="footer">
 
-          </table>
+  <div class="localization">
+  <p>
+    <a class="country">Polska</a>
+    <a class="loc"><strong>26-332</strong> - Z Twojego adresu internetowego </a>
+    <a class ="loc_more">- Sławno</a><a class ="loc_more"> - Dowiedz się więcej</a>
+  </p>
+</div>
 
-      </div>
-
-      <div class="footer">
-
-        <div class="localization">
-        <p>
-          <a class="country">Polska</a>
-          <a class="loc"><strong>Kraków</strong> - Z Twojego adresu internetowego </a>
-          <a class ="loc_more">- Użyj dokładnej lokalizacji</a><a class ="loc_more"> - Dowiedz się więcej</a>
-        </p>
-      </div>
-
-        <ul>
-            <li><a href="#">Pomoc</a></li>
-            <li><a href="#">Prześlij opinię</a></li>
-            <li><a href="#">Prywatność</a></li>
-            <li><a href="#">Warunki</a></li>
-        </ul>
-        
-      </div>
-    </div>
+  <ul>
+      <li><a href="#">Pomoc</a></li>
+      <li><a href="#">Prześlij opinię</a></li>
+      <li><a href="#">Prywatność</a></li>
+      <li><a href="#">Warunki</a></li>
+  </ul>
+  
+</div>
+</div>
 </body>
+
 <script>
-  var app = new Vue({
-    el: '#app',
-    data: {
-      selected_city: '',
-      googleSearch: '',
-      googleSearch_temp: '',
-      cities_update: true,
-      change_class: 0,
-      cities: window.cities,
-      list_counter: -1,
-      foc: true,
-    },
-
-    computed: {
-      // filteredCities: function() {
-      //   if (this.googleSearch.length > 0){
-          
-      //       let result = this.cities.filter(city => city.name.includes(this.googleSearch));
-      //       if(result.length > 10){
-      //         result = result.slice(1,11);
-      //       }
-      //       return result;
-          
-      //   }
-      // },
-    },
-
-    watch: {
-
-      list_counter: function(){
-        this.cities_update = false;
-        this.googleSearch = this.filteredCities[this.list_counter].name;
+    var app = new Vue({
+      el: '#app',
+      data: {
+        enterValues: [],
+        cities: window.cities,
+        change_class: 0,
+        googleSearch: '',
       },
-
-      googleSearch: function(){
-        if(this.googleSearch.length == 0){
-          this.filteredCities = '';
-        }
-        else{
-          this.createFilteredCities(this.cities_update);
-          this.cities_update=true;
-          if(this.list_counter == -1){
-            this.googleSearch_temp = this.googleSearch; 
-            this.createFilteredCities(true);     
-          }
-        }
-      },
-
-    },
-
-    methods: {
-
-    createFilteredCities(bool){
-        if(bool){
-          let result = this.cities.filter(city => city.name.includes(this.googleSearch));
-          if(result.length > 10){
-             this.filteredCities = result.slice(1, 11);
+      methods: {
+        showResults(newValue) {
+          this.enterValues.push(newValue);
+  
+          if (this.change_class == 0){
+            this.change_class = 1;
           }
           else{
-            this.filteredCities = result;
+            this.$emit('input', '');
+            this.change_class = 0;
           }
-        this.list_counter = -1;
-           
-      }
-    },
-
-    change_page() {
-        if (this.change_class == 0){
-          this.change_class = 1;
         }
-        else{
-          this.googleSearch = '';
-          this.change_class = 0;
-        }
-    },
-
-    update_input(name){
-        this.googleSearch = name;
-        this.change_page(); //automatyczne przekierowanie po kliknieciu
-    },
-        
-    choose(i){
-        this.googleSearch = this.filteredCities[i].name;
-    },
-
-    enterClick: function(event) {
-      alert();
-      if(event){
-        
-        this.cities_update = true;
-        this.list_counter = -1;
-        this.change_page();
       }
-    },
-
-    upClick() {
-      if(this.list_counter > -1){
-        this.list_counter -= 1;
-      }
-      else if(this.list_counter == 0){
-        this.list_counter = this.filteredCities.length - 1;
-      }
-    },
-
-    downClick() {
-      if(this.list_counter < this.filteredCities.length - 1){
-        this.list_counter += 1;
-      }
-      else if(this.list_counter == this.filteredCities.length - 1){
-        this.list_counter = -1;
-      }
-    },
-
-  boldCity(input_city){
-    let regex = new RegExp(this.googleSearch_temp, "gi");
-    let bold = "<b>" + 
-      input_city.name.replace(regex, match =>
-          {return "<span class='thin'>"+ match +"</span>";}) 
-              + "</b>";
-      return bold;
-  }
-
-
-  }
-
-});
-</script>
-</html>
+  });
+  </script>
+  </html>
